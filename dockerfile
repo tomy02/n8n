@@ -1,11 +1,14 @@
-# Usa la imagen oficial de n8n como base
-FROM n8nio/n8n:latest
+# Imagen base oficial de Node
+FROM node:18
 
-# Define el directorio de trabajo
-WORKDIR /data
+# Crear directorio de trabajo
+WORKDIR /usr/src/app
 
-# Exponer el puerto en el que corre n8n
+# Instalar n8n globalmente
+RUN npm install -g n8n
+
+# Exponer puerto (Render usará PORT automáticamente)
 EXPOSE 5678
 
-# Comando de inicio de n8n
-CMD ["n8n"]
+# Comando de inicio
+CMD ["n8n", "start"]
