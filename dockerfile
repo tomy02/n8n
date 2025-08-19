@@ -1,14 +1,8 @@
-# Imagen base oficial de Node
-FROM node:18
+# Usamos una imagen oficial de n8n
+FROM n8nio/n8n:latest
 
-# Crear directorio de trabajo
-WORKDIR /usr/src/app
-
-# Instalar n8n globalmente
-RUN npm install -g n8n
-
-# Exponer puerto (Render usará PORT automáticamente)
+# Exponer el puerto
 EXPOSE 5678
 
-# Comando de inicio
+# Comando por defecto al iniciar el contenedor
 CMD ["n8n", "start"]
